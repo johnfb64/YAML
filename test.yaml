@@ -1,0 +1,21 @@
+numero: 10
+letras: 'Hola mundo'
+texto: Hola Mundo
+
+text:  |-
+  Hola Mundo!
+
+listas: [12,20]
+
+listas1: 
+  - 'Hola'
+  - 'Adios'
+
+objeto:
+  numero: 10
+  texto: 'hola'
+  objeto2: :
+  array:
+    - 12
+    - 13
+    - 14
