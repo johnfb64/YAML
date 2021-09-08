@@ -1,9 +1,10 @@
 ---
+
 #Indica ejecución de tareas en todos los servidores
-- hosts: all
-- tasks: 
+- hosts: homeservers 
+  tasks: 
   - name: vim install
-    apt: name=vim state=present
+    apt: name=cowsay state=present
     become: true
   - name: saluda
     shell: cowsay "hola"
