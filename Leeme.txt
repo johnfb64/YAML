@@ -1,0 +1,18 @@
+Comandos frecuentes:
+
+Ejecutar playbook:
+
+$ansible-playbook GIT/YAML/Basics/tasks.yml -kK
+
+Ubicación archivo cfg de ansible:
+
+$sudo vi /etc/ansible/ansible.cfg
+
+Comando ad-hoc con modulo:
+
+$ansible 192.168.20.110 -m shell -a echo "hola"
+
+Comando adhoc sin modulo (no siempre es necesario):
+
+$ansible 192.168.20.110 -m shell echo "hola"
+

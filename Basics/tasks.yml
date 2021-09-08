@@ -2,9 +2,8 @@
 
 #Indica ejecución de tareas en todos los servidores
 - hosts: homeservers 
+  remote_user: john
+
   tasks: 
-  - name: vim install
-    apt: name=cowsay state=present
-    become: true
-  - name: saluda
-    shell: cowsay "hola"
+  - name: df
+    shell: df -h >> /home/john/temp/test.txt
