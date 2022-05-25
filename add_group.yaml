@@ -1,0 +1,12 @@
+--- 
+- name: Validar grupo test
+  become: true
+  hosts: all
+  vars:
+    grupo: "Test"
+  tasks:
+    - name: Crear grupo de test
+      ansible.builtin.group:
+        name: "{{ grupo }}"
+        state: present
+  
