@@ -1,0 +1,15 @@
+---
+- name: Creacion de usuario Declaracion
+  hosts: all
+  become: true
+  vars:
+    usuario: test
+    comentario: Usuario de prueba
+    grupo: Test
+  tasks:
+    - name: Creacion del usuario ejecucion
+      ansible.builtin.user:
+        name: "{{ usuario }}"
+        comment: "{{ comentario }}"
+        group: "{{ grupo }}"
+        state: present
