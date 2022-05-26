@@ -1,0 +1,12 @@
+---
+#Este playbook se ejecuta con (cambiar la contraseña de pepe):
+#ansible-playbook cambia_pwd.yaml --extra-vars newpassword=pepe123
+#Se puede usar -kk al final para preguntar pwd
+- hosts: all
+  become: true
+  tasks:
+    - name: Change user password
+      user:
+        name: test
+        update_password: always
+        password: "{{ newpassword|password_hash('sha512') }}"
