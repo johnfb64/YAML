@@ -2,6 +2,8 @@
 #Este playbook se ejecuta con (cambiar la contraseña de pepe):
 #ansible-playbook cambia_pwd.yaml --extra-vars newpassword=pepe123
 #Se puede usar -kk al final para preguntar pwd
+#Nota: Se debe tener instalado pip y con pip instaldo passlib
+#pip install passlib
 - hosts: all
   become: true
   tasks:
