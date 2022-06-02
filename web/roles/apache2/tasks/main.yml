@@ -1,0 +1,16 @@
+- name: Instalar apache2
+  apt: name=apache2 state=latest
+# Inicializa servicio
+- name: Iniciar y habilitar servicio
+  service: name=apache2 state=started enabled=true
+- name: Copiar fichero de configuración
+  #aqui no hace falta especificar o señalar de donde debe obtener el archivo
+  #este ya lo busca de forma automatica si esta en files. 
+  copy: src=apache2.conf dest=/etc/apache2/apache2.conf
+  #reinicar el servicio httpd:
+  #restart_httpd es el handler dentro de la carpeta handlers
+  notify: restart_httpd
+- name: Copiar fichero index.html
+  #esta instruccion se encargara de copiar el index y dejarlo en esta ruta
+  template: src=index.html.j2 dest=/var/www/html/index.html
+ 

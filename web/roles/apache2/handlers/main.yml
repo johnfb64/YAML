@@ -1,0 +1,3 @@
+#este es un handler que reiniciar els ervicio httpd apache
+- name: restart_httpd
+  service: name=apache2 state=restarted

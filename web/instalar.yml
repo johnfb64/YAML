@@ -1,0 +1,6 @@
+- name: Instalar y configurar apache2
+  hosts: portatil
+  become: true
+  #en vez de tasks, se procede a utilizar roles.
+  roles:
+    - apache2
