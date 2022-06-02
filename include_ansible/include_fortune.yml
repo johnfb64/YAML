@@ -1,0 +1,4 @@
+#Aqui no es necesario especificar el task o el become. 
+#Por que esto ya va a estar incluido en el yml que me esta llamando!
+- name: instalar fortune
+  apt: name=fortune state=latest

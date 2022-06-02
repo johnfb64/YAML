@@ -1,0 +1,9 @@
+---
+- name: Primer playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: Instalar cowsay
+      apt: name=cowsay state=latest
+      #con include se manda a llamar otro yml, para saber que va a instalar, revise este archivo. 
+    - include: include_fortune.yml
