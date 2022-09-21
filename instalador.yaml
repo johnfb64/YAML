@@ -1,0 +1,15 @@
+--- 
+#con las 3 lineas el interprete reconoce que es yaml
+- 
+  #become true envia comando como root
+  become: true
+  #hosts: es la ip sobre la que se quiere hacer la tarea. 
+  hosts: 192.168.20.110
+  tasks: 
+    - 
+      #modulo apt para instalar el programa en state present. 
+      apt: "name=cowsay state=present"
+      name: "instala cowsay"
+    - 
+      name: saluda
+      shell: "echo \"Hola mundo\""
