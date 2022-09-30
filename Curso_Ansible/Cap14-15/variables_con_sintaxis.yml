@@ -1,0 +1,40 @@
+---
+
+- name: Crea archivo usando variables
+  hosts: 192.168.20.65
+  connection: local
+  vars:
+    - miip: "1.2.3.4"
+      #variable con lista
+    - milista: ["apache2","mariadb","php5"]
+      #lista en formato largo
+    - milista_larga:
+        - apache2
+        - mariadb
+        - php5
+      #Diccionario:
+    - midic: {web: "apache2", bd: "mariadb", script:"php5"}
+      #Diccionario largo
+    - midic_largo:
+        - web: apache2
+        - bd: mariadb
+        - script: php5
+    #texto largo y linea larga
+    - mitexto: |
+        primera linea
+        segunda linea
+        tercera linea
+    - milinealarga: >
+        inicio linea
+        continuacion linea
+        final linea    
+
+  tasks:
+    - name: Crea archivos hosts
+      template: 
+        src: hosts.j2 
+        dest: /tmp/hosts
+        owner: root
+        group: root
+        mode: 0644
+         

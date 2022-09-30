@@ -1,0 +1,10 @@
+---
+
+- name: Crea archivo usando variables
+  hosts: 192.168.20.65
+  connection: local
+  vars:
+    - miip: "1.2.3.4"
+  tasks:
+    - name: Crea archivos hosts
+      template: src=hosts.j2 dest=/tmp/hosts
