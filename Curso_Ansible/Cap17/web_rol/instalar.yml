@@ -1,0 +1,7 @@
+---
+- name: Instalar y configurar apache
+  hosts: test
+  remote_user: john
+  become: true
+  roles:
+    - apache2
