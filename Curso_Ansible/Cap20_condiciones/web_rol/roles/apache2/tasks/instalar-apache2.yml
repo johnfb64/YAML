@@ -1,0 +1,7 @@
+- name: Instalar_apache2
+  apt: name=apache2 state=latest
+
+- name: Iniciar y habilitar servicio
+  service: name=apache2 state=started enabled=true
+
+

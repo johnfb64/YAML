@@ -1,0 +1,9 @@
+---
+- name: Instalar httpd
+  yum: name=httpd state=latest
+
+- name: Iniciar y habilitar servicio
+  service: name=httpd state=started enabled=true
+
+
+

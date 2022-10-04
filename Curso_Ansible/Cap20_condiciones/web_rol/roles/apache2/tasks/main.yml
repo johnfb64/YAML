@@ -1,0 +1,17 @@
+---
+- name: Instalar apache2
+  include: instalar-apache2.yml
+  when: ansible_distribution == "Debian" or ansible_Distribution == "Ubuntu"
+
+- name: Instalar httpd
+  include: instalar-httpd.yml
+  when: ansible_distribution == "CentOS"
+
+- name: Copiar fichero de configuración
+  copy: src=apache2.conf dest=/etc/apache2/apache2.conf
+  notify: restart_httpd
+
+- name: Copiar fichero index.html
+  template: src=index.html.j2 dest=/var/www/html/index.html
+  notify: restart_httpd
+
