@@ -1,0 +1,19 @@
+{# Esto es un comentario!  #}
+{# platilla con if y for  #}
+
+hola al servidor {{ ansible_fqdn }}
+
+{# Ejemplo sentencia if  #}
+
+{% if ansible_distribution == "Debian"  %}
+Este sistema es Debian!
+{% endif %}
+
+{# Ejemplo sentencia for  #}
+
+Lista de usuarios:
+{% for usuario in lista_usuarios %}
+{{ usuario }}
+{% endfor %}
+
+FInal de plantilla

@@ -1,0 +1,14 @@
+---
+
+- name: Primer play
+  hosts: test
+  remote_user: john
+  become: true
+  tasks:
+    - name: instalar cowsay
+      apt: name=cowsay state=latest
+      #Manda a llamar ese fichero yml. 
+    - include: instalar_apache2.yml
+
+- name: Segundo play
+  include: segundo_play.yml
