@@ -1,0 +1,16 @@
+---
+- hosts: test
+  vars_prompt:
+    - name: username
+      prompt: Cual es tu nombre?
+      private: no
+
+    - name: password
+      prompt: Cual es tu contraseña?
+
+  tasks:
+
+    - name: Imprime mensaje
+      ansible.builtin.debug:
+        msg: 'Logeado como {{ username }}'
+

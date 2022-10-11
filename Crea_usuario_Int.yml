@@ -1,0 +1,30 @@
+---
+- hosts: test
+  become: yes
+  vars_prompt:
+    - name: username
+      prompt: Ingrese usuario...
+      private: no
+
+    - name: password
+      prompt: Ingrese contraseña...
+
+      #- name: server
+      #prompt: Ingrese zona o dirección IP...
+
+    - name: grupo
+      prompt: Ingrese el grupo...
+      private: no
+
+    - name: comentario
+      prompt: Ingrese el comentario de usuario...
+      private: no
+
+  tasks:
+
+    - name: Creacion de usuario
+      ansible.builtin.user:
+        name: "{{ username }}"
+        password: "{{ password|password_hash('sha512') }}"
+        group: "{{ grupo }}"
+        comment: "{{ comentario }}"
