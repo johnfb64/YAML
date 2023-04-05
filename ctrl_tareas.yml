@@ -1,7 +1,7 @@
 ---
 - name: instalar nginx
   hosts: 192.168.20.171
-  become: yes
+  become: yes #Ejecuta como root
   tasks:
     - name: Instalar paquetes
       yum:
@@ -10,4 +10,4 @@
           - mariadb-server
           - php
         state: present
-      when: ansible_distribution == 'CentOS'
+      when: ansible_distribution == 'CentOS' #este es el when que valida que se instale sobre la distribución correcta
