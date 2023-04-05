@@ -1,0 +1,13 @@
+---
+- name: instalar nginx
+  hosts: 192.168.20.171
+  become: yes
+  tasks:
+    - name: Instalar paquetes
+      yum:
+        name:
+          - httpd
+          - mariadb-server
+          - php
+        state: present
+      when: ansible_distribution == 'CentOS'
