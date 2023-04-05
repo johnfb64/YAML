@@ -1,0 +1,19 @@
+---
+- name: Reporte de usuario
+  hosts: localhost
+  gather_facts: no #gather_facts recolecta informacion de nodos. Aqui se le indica que no use la opcion
+  tasks:
+    - name: Obtener informacion de usuario
+      shell: getent passwd #Este es un comando linux ejecutado por modulo shell
+      register: user_info #la salida del comando shell se guarda en esta variable user_info
+      
+
+    - name: transformando infomracion de usuario
+      set_fact: #Este modulo crea el diccionario
+        user_dict: "{{ user_dict|default({})|combine({item.split(':')[0]: {'uid': item.split(':')[2], 'shell': item.split(':')[6]}}) }}"
+      loop: "{{ user_info.stdout_lines }}"
+
+    - name: Imprimiendo informacion de usuarios
+      debug:
+        var: user_dict
+       
