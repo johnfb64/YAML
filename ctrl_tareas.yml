@@ -12,4 +12,4 @@
           - mariadb-server
           - php
         state: present
-      when: ansible_distribution == 'CentOS' and ansible_kernel == '3.10' #este es el when que valida que se instale sobre la distribución correcta
+      when: ansible_distribution == 'CentOS' and ansible_kernel == '2.10' #este es el when que valida que se instale sobre la distribución correcta
