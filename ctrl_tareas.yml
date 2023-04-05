@@ -1,4 +1,6 @@
 ---
+#ansible when
+#ansible and
 - name: instalar nginx
   hosts: 192.168.20.171
   become: yes #Ejecuta como root
@@ -10,4 +12,4 @@
           - mariadb-server
           - php
         state: present
-      when: ansible_distribution == 'CentOS' #este es el when que valida que se instale sobre la distribución correcta
+      when: ansible_distribution == 'CentOS' and ansible_kernel == '3.10' #este es el when que valida que se instale sobre la distribución correcta
