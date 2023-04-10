@@ -1,0 +1,14 @@
+---
+- name: playbook para copiar archivos
+  hosts: test
+
+
+  tasks:
+  - name: copia archivos
+    become: true
+    copy:
+      src: /root/GIT/YAML/include_ansible/copia_archivo/archivo_test.txt #La fuente es la ubicacion del archivo en el servidor ansible
+      dest: /tmp #El destino sera el /tmp de cada uno de los clientes
+      owner: john #El propietario en el servidor cliente
+      group: john #El grupo propietario en el servidor fuente
+      mode: 0777 #El tipo de permisos
