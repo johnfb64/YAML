@@ -1,0 +1,7 @@
+---
+- name: Playbook de prueba #Nombre del playbook.
+  hosts: localhost
+
+  tasks:  #tasks = corra la siguiente tarea
+  - name: Print hello world  #Nombre de la tarea
+    debug: msg="Hola mundo!" #corre el modulo debug que permite la impresion de esta cadena de texto
