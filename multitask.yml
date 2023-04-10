@@ -1,0 +1,11 @@
+---
+- name: Ejemplo que corre 2 tareas
+  hosts: localhost
+
+  tasks:
+  - name: tarea 1 - conectividad
+    ping: #Modulo ping
+
+
+  - name: tarea 2 - imprime hola mundo
+    debug: msg="hola mundo" #modulo debug, msg para imprimir cadena de texto
