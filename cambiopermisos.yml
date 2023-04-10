@@ -1,0 +1,10 @@
+---
+- name: Playbook para cambiar permisos de archivo
+  hosts: test
+
+  tasks:
+  - name: Cambio de permisos a archivo en tmp
+    file: #modulo para hacer el cambio
+      path: /tmp/archivo_test.txt
+      mode: a-rwx #quita permisos a todos
+
