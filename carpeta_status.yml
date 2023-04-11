@@ -1,0 +1,14 @@
+---
+#Hecho con ayuda de chatgpt
+- name: Verificar el estado de un directorio
+  hosts: test
+
+
+  tasks:
+  - name: validar el estado de un directorio, si existe o no
+    stat:
+      path: /home/john/test
+    register: directorio_estado #esta es la variable donde se guardara el resultado de "stat
+
+  - debug:
+      var: directorio_estado.stat.exists #aqui imprime resultado de variable, devuelve true or false
