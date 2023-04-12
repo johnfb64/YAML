@@ -1,0 +1,18 @@
+---
+# tasks file for apache
+- name: Instalar apache
+  yum:
+    name: httpd
+    state: present
+
+
+- name: Inicia el servicio apache
+  service:
+    name: httpd
+    state: started
+    enabled: true
+
+- name: Configurar archivo de apache
+  template:
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf

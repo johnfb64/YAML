@@ -1,0 +1,6 @@
+---
+- name: Instalar y configurar apache por medio de un rol
+  hosts: server2
+  become: true
+  roles:
+    - apache
