@@ -1,0 +1,29 @@
+---
+- name: delete_tmp script deploy
+  become: yes
+  hosts: test
+  tasks:
+
+  - name: Group Creation
+    ansible.builtin.group:
+      name: delete_tmp
+      state: present
+      gid: 3090
+
+  - name: Copy files
+    ansible.builtin.copy:
+      src: /root/YAML/del_tmp/00-deltmp #parametrizar
+      dest: /etc/sudoers.d/
+      owner: root
+      group: root
+      mode: '0440'
+
+  - name: Copy files
+    ansible.builtin.copy:
+      src: /root/YAML/del_tmp/vacadice.sh #parametrizar
+      dest: /usr/bin/
+      owner: root
+      group: delete_tmp
+      mode: '0750'
+
+

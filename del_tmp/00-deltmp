@@ -1,0 +1,1 @@
+delete_tmp ALL = (root) NOPASSWD: /usr/bin/vacadice.sh
