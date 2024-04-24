@@ -1,0 +1,15 @@
+---
+- name: clean yum and extend fs
+  hosts: Rocky
+  become: true
+
+  tasks: 
+  - name: yum clean
+    command: yum clean all
+
+  - name: extend disk
+    lvol:
+      vg: vg_test
+      lv: lv_test
+      size: 3072
+      resizefs: true
