@@ -1,0 +1,19 @@
+---
+- name: Facts demo
+  hosts: servera
+  #este playbook debe obtener los datos de sistema
+  gather_facts: true
+  become: true
+
+
+  tasks:
+    #este playbook toma facts de modulo setup. 
+    - name: Asegurese que los facts importantes se muestren
+      ansible.builtin.debug:
+        msg: 
+          - "My system name: {{ ansible_facts['hostname'] }}"
+          - "My FQDN: {{ ansible_facts['fqdn'] }}"
+          - "My Operating system: {{ ansible_facts['distribution'] }}"
+          - "My default ipv4 address: {{ ansible_facts['default_ipv4']['address'] }}"
+            #Indica valor de disco en terminos humanos. 
+          - "My root filesystem size has: {{ ansible_facts['mounts'][0]['size_available']|human_readable }} available"
