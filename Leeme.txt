@@ -19,3 +19,8 @@ $ansible 192.168.20.110 -m shell echo "hola"
 V.9 ---------------------------------
 
 ansible-navigator doc dnf //Este sirve para ver la documentación de el modulo dnf
+
+
+
+V.Test ------------------------------
+Prueba de GIT
